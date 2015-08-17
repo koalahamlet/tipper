@@ -63,7 +63,7 @@
                                     <segment title="22%"/>
                                 </segments>
                                 <connections>
-                                    <action selector="onValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="tSN-mt-gV9"/>
+                                    <action selector="onValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="yO7-Vd-pqS"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -76,7 +76,7 @@
                     <navigationItem key="navigationItem" id="8hC-JI-O1e">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="OFc-xK-RI5">
                             <connections>
-                                <segue destination="naX-Fg-Dqm" kind="push" id="7KZ-NJ-cY8"/>
+                                <segue destination="naX-Fg-Dqm" kind="modal" id="5SR-qm-EeX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -96,25 +96,99 @@
             </objects>
             <point key="canvasLocation" x="766" y="352"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="pxc-TR-PK2">
             <objects>
-                <viewController id="naX-Fg-Dqm" sceneMemberID="viewController">
+                <viewController id="naX-Fg-Dqm" customClass="SettingsViewController" customModule="tipper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sOs-Gp-Wqi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I worked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PXU-jU-kUj">
-                                <rect key="frame" x="131" y="142" width="67" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a currency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Urw-jC-Tlf">
+                                <rect key="frame" x="20" y="92" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView tag="3" contentMode="scaleToFill" id="ct6-Yy-KYv">
+                                <rect key="frame" x="0.0" y="92" width="320" height="119"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Percentage Defaults" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rTk-y8-e8b">
+                                <rect key="frame" x="20" y="244" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="70F-4Z-cy8">
+                                <rect key="frame" x="173" y="285" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="percentageUp:" destination="naX-Fg-Dqm" eventType="valueChanged" id="OzR-fA-ZD6"/>
+                                </connections>
+                            </stepper>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="JSp-Bs-1Cd">
+                                <rect key="frame" x="173" y="322" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="percentageUp:" destination="naX-Fg-Dqm" eventType="valueChanged" id="UQ0-Q6-nSJ"/>
+                                </connections>
+                            </stepper>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="NXL-yr-kpp">
+                                <rect key="frame" x="173" y="359" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="percentageUp:" destination="naX-Fg-Dqm" eventType="valueChanged" id="BbJ-se-4d4"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ceS-wX-klJ">
+                                <rect key="frame" x="59" y="285" width="87" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9ba-xc-g5g">
+                                <rect key="frame" x="59" y="322" width="87" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E2R-3R-jRX">
+                                <rect key="frame" x="54" y="359" width="92" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UnY-eG-Vxo">
+                                <rect key="frame" x="77" y="418" width="166" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDone:" destination="naX-Fg-Dqm" eventType="touchDown" id="UAj-N6-1Vf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="zXa-qQ-H8K"/>
+                    <connections>
+                        <outlet property="currencyPicker" destination="ct6-Yy-KYv" id="esb-ot-tCi"/>
+                        <outlet property="doneButton" destination="UnY-eG-Vxo" id="tBX-G0-0Ck"/>
+                        <outlet property="highStepper" destination="NXL-yr-kpp" id="fb2-Ac-a55"/>
+                        <outlet property="higherLabel" destination="E2R-3R-jRX" id="JVP-oo-LiE"/>
+                        <outlet property="lowStepper" destination="70F-4Z-cy8" id="OHj-2y-JqL"/>
+                        <outlet property="lowerLabel" destination="ceS-wX-klJ" id="Y5B-z0-tGs"/>
+                        <outlet property="midLabel" destination="9ba-xc-g5g" id="tR3-e3-lJ9"/>
+                        <outlet property="midStepper" destination="JSp-Bs-1Cd" id="hej-kc-jhz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLZ-Tp-Bmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
